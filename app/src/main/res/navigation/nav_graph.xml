@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools" android:id="@+id/nav_graph"
+            app:startDestination="@id/startFragment">
+    <fragment android:id="@+id/qrInfoFragment" android:name="com.alesharik.hack.app2.fragment.QrInfoFragment"
+              android:label="fragment_qr_info" tools:layout="@layout/fragment_qr_info"/>
+    <fragment android:id="@+id/startFragment" android:name="com.alesharik.hack.app2.fragment.StartFragment"
+              android:label="fragment_start" tools:layout="@layout/fragment_start">
+        <action android:id="@+id/action_startFragment_to_scanQRFragment" app:destination="@id/scanQRFragment"/>
+        <action android:id="@+id/action_startFragment_to_qrInfoFragment" app:destination="@id/qrInfoFragment"
+                app:popUpToInclusive="false"/>
+    </fragment>
+    <fragment android:id="@+id/scanQRFragment" android:name="com.alesharik.hack.app2.fragment.ScanQRFragment"
+              android:label="fragment_scan_qr" tools:layout="@layout/fragment_scan_qr">
+        <action android:id="@+id/action_scanQRFragment_to_qrInfoFragment" app:destination="@id/qrInfoFragment"
+                app:popUpTo="@id/startFragment" app:popUpToInclusive="true"/>
+    </fragment>
+</navigation>
